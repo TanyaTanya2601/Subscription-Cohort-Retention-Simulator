@@ -1,17 +1,14 @@
-Subscription Cohort Retention Simulator
+#### Subscription Cohort Retention Simulator
 
 A desktop tool that models subscription cohort retention and unit economics across acquisition channels — predicting when a cohort becomes profitable, not just whether it churns.
 
-
-
-<!-- Replace demo.gif with your own screen recording — see "Adding a demo" below -->
-The problem it solves
+### The problem it solves:
 
 Most churn dashboards answer "how many users left this month." This tool answers a different, more business-relevant question: which acquisition channels are actually worth the spend, and how long until they pay back?
 
 It models five channels (organic, referral, paid search, paid social, direct) with distinct retention curves (via Weibull survival functions), then calculates LTV, LTV/CAC ratio, and payback period per cohort-channel pair — plus a scenario simulator to test "what if we raise prices 10% and cut CAC 15%?" before making the call.
 
-Features
+### Features
 Data generation — synthetic cohort data with configurable channel parameters (CAC, ARPU, retention shape/scale) and time window
 Cohort analysis — retention matrices, LTV/CAC ratios, payback period by channel and cohort
 Visualisations — retention heatmaps, retention curves, LTV distribution, profitability heatmap, full comparison dashboard
@@ -26,6 +23,7 @@ Screenshots
 <img width="1911" height="1015" alt="image" src="https://github.com/user-attachments/assets/3c3ea8e1-02b8-41e5-adae-8be48873c1e9" />
 
 Quickstart
+
 bash
 git clone https://github.com/YOUR_USERNAME/cohort-retention-simulator.git
 cd cohort-retention-simulator
@@ -38,19 +36,12 @@ Key result
 
 Across the modelled channels, organic acquisition shows roughly a 13x higher LTV/CAC ratio than paid social ($20 CAC vs. $70 CAC, with organic users also retaining substantially longer). The scenario simulator lets you test how much of that gap closes under different pricing or retention assumptions.
 
-Tech stack
+### Tech stack
 
 Python, pandas, NumPy, Matplotlib, Seaborn, Tkinter
 
-Project structure
-app_gui.py        # Entire app: data generator, analyzer, visualizer,
-                   # scenario simulator, and Tkinter GUI in one file
-sample_data.csv    # Pre-generated sample dataset
-requirements.txt
-
-Author
+### Project structure
+app_gui.py --> Entire app: data generator, analyzer, visualizer, scenario simulator, and Tkinter GUI in one file
+sample_data.csv --> Pre-generated sample dataset
 
 Built by Tanya as a portfolio project demonstrating unit-economics analysis and business-facing data science, not just model accuracy.
-Author
-
-Built by [Your Name] as a portfolio project demonstrating unit-economics analysis and business-facing data science, not just model accuracy.
