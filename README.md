@@ -1,4 +1,4 @@
-#### Subscription Cohort Retention Simulator
+##### Subscription Cohort Retention Simulator
 
 A desktop tool that models subscription cohort retention and unit economics across acquisition channels — predicting when a cohort becomes profitable, not just whether it churns.
 
@@ -14,7 +14,7 @@ Cohort analysis — retention matrices, LTV/CAC ratios, payback period by channe
 Visualisations — retention heatmaps, retention curves, LTV distribution, profitability heatmap, full comparison dashboard
 Scenario simulator — model pricing, retention, and CAC changes (globally or per-channel) and compare against baseline
 
-Screenshots
+### Screenshots
 
 <img width="1911" height="1006" alt="image" src="https://github.com/user-attachments/assets/2c6fee0c-7fa5-484b-895e-8437b467af1e" />
 <img width="1917" height="408" alt="image" src="https://github.com/user-attachments/assets/1fec66f4-4ce5-4245-b392-fb4b329b8d30" />
@@ -22,17 +22,8 @@ Screenshots
 <img width="1915" height="1011" alt="image" src="https://github.com/user-attachments/assets/b1ed4eac-e7ec-4743-8c64-6fa3f6ef6802" />
 <img width="1911" height="1015" alt="image" src="https://github.com/user-attachments/assets/3c3ea8e1-02b8-41e5-adae-8be48873c1e9" />
 
-Quickstart
 
-bash
-git clone https://github.com/YOUR_USERNAME/cohort-retention-simulator.git
-cd cohort-retention-simulator
-pip install -r requirements.txt
-python app_gui.py
-
-Generate data in Tab 1 first — it initializes the analyzer, visualizer, and simulator used by the other tabs. A sample dataset (sample_data.csv) is included if you'd rather load pre-generated data via "Load CSV...".
-
-Key result
+### Key result
 
 Across the modelled channels, organic acquisition shows roughly a 13x higher LTV/CAC ratio than paid social ($20 CAC vs. $70 CAC, with organic users also retaining substantially longer). The scenario simulator lets you test how much of that gap closes under different pricing or retention assumptions.
 
