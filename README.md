@@ -1,4 +1,4 @@
-##### Subscription Cohort Retention Simulator
+# Subscription Cohort Retention Simulator
 
 A desktop tool that models subscription cohort retention and unit economics across acquisition channels — predicting when a cohort becomes profitable, not just whether it churns.
 
