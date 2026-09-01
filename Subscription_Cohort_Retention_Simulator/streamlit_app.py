@@ -1,10 +1,3 @@
-"""
-Subscription Cohort Retention Simulator — Streamlit Web App
-Deploy free on Streamlit Community Cloud: https://streamlit.io/cloud
-
-Run locally with:  streamlit run streamlit_app.py
-"""
-
 import os
 import numpy as np
 import pandas as pd
@@ -15,9 +8,8 @@ import streamlit as st
 
 sns.set_style("whitegrid")
 
-# ============================================================
+
 # MODULE 1: DATA GENERATOR
-# ============================================================
 
 class SyntheticCohortGenerator:
     CHANNELS = {
@@ -63,9 +55,7 @@ class SyntheticCohortGenerator:
         return self.df
 
 
-# ============================================================
 # MODULE 2: COHORT ANALYZER
-# ============================================================
 
 class CohortAnalyzer:
     def __init__(self, cohort_df, discount_rate=0.10):
@@ -154,9 +144,8 @@ class CohortAnalyzer:
         return ltv_cohorts.pivot(index='cohort_month', columns='channel', values='ltv_ratio')
 
 
-# ============================================================
+
 # MODULE 3: VISUALIZER
-# ============================================================
 
 class CohortVisualizer:
     def __init__(self, analyzer, figsize_default=(9, 5.5)):
@@ -268,9 +257,9 @@ class CohortVisualizer:
         return fig
 
 
-# ============================================================
+
 # MODULE 4: SCENARIO SIMULATOR
-# ============================================================
+
 
 class ScenarioSimulator:
     def __init__(self, original_df, discount_rate=0.10):
@@ -411,19 +400,18 @@ class ScenarioSimulator:
         return pd.DataFrame(impact)
 
 
-# ============================================================
+
 # STREAMLIT APP
-# ============================================================
 
 st.set_page_config(page_title="Cohort Retention Simulator", layout="wide")
 
-st.title("📊 Subscription Cohort Retention Simulator")
+st.title("Subscription Cohort Retention Simulator")
 st.caption(
     "Predicting time-to-profitability by acquisition channel — LTV, CAC payback, "
     "and scenario modeling for subscription businesses."
 )
 
-# ---- Session state init ----
+# Session state init 
 if 'df' not in st.session_state:
     st.session_state.df = None
 if 'simulator' not in st.session_state:
@@ -431,14 +419,14 @@ if 'simulator' not in st.session_state:
 if 'discount_rate' not in st.session_state:
     st.session_state.discount_rate = 0.10
 
-# ---- Sidebar: data generation controls ----
+# Sidebar: data generation controls 
 with st.sidebar:
     st.header("1. Generate Data")
     n_months = st.slider("Number of cohort months", min_value=3, max_value=36, value=24)
     start_date = st.text_input("Start date", value="2023-01-01")
     discount_rate = st.slider("Annual discount rate", min_value=0.0, max_value=0.30, value=0.10, step=0.01)
 
-    if st.button("🔄 Generate Data", type="primary", use_container_width=True):
+    if st.button("Generate Data", type="primary", use_container_width=True):
         gen = SyntheticCohortGenerator(n_months=n_months, start_date=start_date, discount_rate=discount_rate)
         df = gen.generate()
         st.session_state.df = df
@@ -454,18 +442,18 @@ with st.sidebar:
         st.session_state.discount_rate = discount_rate
         st.success(f"Loaded {len(df):,} rows")
 
-# ---- Main content ----
+# Main content
 if st.session_state.df is None:
-    st.info("👈 Click **Generate Data** in the sidebar to get started.")
+    st.info("Click **Generate Data** in the sidebar to get started.")
     st.stop()
 
 df = st.session_state.df
 analyzer = CohortAnalyzer(df, discount_rate=st.session_state.discount_rate)
 visualizer = CohortVisualizer(analyzer)
 
-tab1, tab2, tab3, tab4 = st.tabs(["📈 Overview", "📋 Cohort Analysis", "🎨 Visualizations", "🧪 Scenario Simulator"])
+tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Cohort Analysis", "Visualizations", "Scenario Simulator"])
 
-# ---- TAB 1: OVERVIEW ----
+# TAB 1: OVERVIEW 
 with tab1:
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Total Rows", f"{len(df):,}")
@@ -482,7 +470,7 @@ with tab1:
     st.subheader("Sample Data")
     st.dataframe(df.head(50), use_container_width=True)
 
-# ---- TAB 2: COHORT ANALYSIS ----
+# TAB 2: COHORT ANALYSIS 
 with tab2:
     st.subheader("Channel Summary")
     st.dataframe(analyzer.channel_summary(), use_container_width=True)
@@ -497,7 +485,7 @@ with tab2:
     st.subheader("LTV by Cohort × Channel")
     st.dataframe(analyzer.calculate_ltv_by_cohort_channel(), use_container_width=True)
 
-# ---- TAB 3: VISUALIZATIONS ----
+# TAB 3: VISUALIZATIONS 
 with tab3:
     viz_choice = st.selectbox(
         "Choose a visualization",
@@ -520,7 +508,7 @@ with tab3:
 
     st.pyplot(fig)
 
-# ---- TAB 4: SCENARIO SIMULATOR ----
+# TAB 4: SCENARIO SIMULATOR 
 with tab4:
     st.subheader("Create a Scenario")
     with st.form("scenario_form"):
