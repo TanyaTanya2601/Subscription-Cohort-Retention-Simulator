@@ -434,7 +434,7 @@ with st.sidebar:
         st.session_state.discount_rate = discount_rate
         st.success(f"Generated {len(df):,} rows")
 
-    uploaded = st.file_uploader("...or upload a CSV", type="csv")
+    uploaded = st.file_uploader("Or upload a CSV", type="csv")
     if uploaded is not None:
         df = pd.read_csv(uploaded)
         st.session_state.df = df
@@ -517,7 +517,7 @@ with tab4:
         arpu_mult = c1.number_input("ARPU multiplier", min_value=0.1, max_value=5.0, value=1.0, step=0.05)
         retention_imp = c2.number_input("Retention improvement", min_value=-0.9, max_value=2.0, value=0.0, step=0.05)
         cac_reduction = c3.number_input("CAC reduction", min_value=-2.0, max_value=0.9, value=0.0, step=0.05)
-        submitted = st.form_submit_button("➕ Create Scenario", type="primary")
+        submitted = st.form_submit_button(" Create Scenario", type="primary")
 
         if submitted:
             if name.strip() == "":
