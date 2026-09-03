@@ -35,4 +35,23 @@ Python, pandas, NumPy, Matplotlib, Seaborn, Tkinter
 app_gui.py --> Entire app: data generator, analyzer, visualizer, scenario simulator, and Tkinter GUI in one file
 sample_data.csv --> Pre-generated sample dataset
 
+### Deployment
+
+Deployed on Streamlit Community Cloud for a live public demo, and separately on AWS EC2 for hands-on infrastructure experience — including provisioning the environment, managing dependencies, and diagnosing a disk-quota deployment error.
+
+Streamlit Community Cloud: https://subscription-cohort-retention-simulator-yml2chkvgzfssz7752zjde.streamlit.app/
+
+AWS EC2 Instance: 
+(.venv) ubuntu@ip-172-31-10-211:~/Subscription-Cohort-Retention-Simulator/Subscription_Cohort_Retention_Simulator$ python3 -m streamlit run app.py
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+2026-09-03 23:35:25.515 Uvicorn server started on :::8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.10.211:8501
+  External URL: http://3.110.218.234:8501
+
 Built by Tanya as a portfolio project demonstrating unit-economics analysis and business-facing data science, not just model accuracy.
