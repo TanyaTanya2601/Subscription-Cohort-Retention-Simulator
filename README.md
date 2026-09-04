@@ -54,4 +54,7 @@ Collecting usage statistics. To deactivate, set browser.gatherUsageStats to fals
   Network URL: http://172.31.10.211:8501
   External URL: http://3.110.218.234:8501
 
+  <img width="1917" height="1015" alt="image" src="https://github.com/user-attachments/assets/9b18878e-4e76-4648-91ad-014c6892fa9f" />
+
+
 Built by Tanya as a portfolio project demonstrating unit-economics analysis and business-facing data science, not just model accuracy.
