@@ -37,11 +37,13 @@ sample_data.csv --> Pre-generated sample dataset
 
 ### Deployment
 
+## Streamlit Community Cloud
 Deployed on Streamlit Community Cloud for a live public demo, and separately on AWS EC2 for hands-on infrastructure experience — including provisioning the environment, managing dependencies, and diagnosing a disk-quota deployment error.
 
 Streamlit Community Cloud: https://subscription-cohort-retention-simulator-yml2chkvgzfssz7752zjde.streamlit.app/
 
-AWS EC2 Instance: 
+## AWS EC2 Instance
+
 (.venv) ubuntu@ip-172-31-10-211:~/Subscription-Cohort-Retention-Simulator/Subscription_Cohort_Retention_Simulator$ python3 -m streamlit run app.py
 
 Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
